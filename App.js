@@ -1,21 +1,42 @@
 import React, {useState} from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput} from 'react-native';
 
 export default function App() {
-  const[outputText, setOutputText] = useState('Previous data');
   return (
-    <View style={styles.container}>
-      <Text> {outputText} </Text>
-      <Button title="Change Text" onPress = {() => {setOutputText('The text changed')}} />
+    <View style={whole_layout.container}>
+      <TextInput
+        placeholder="Write your item"
+        placeholderTextColor="gray"
+        style={whole_layout.input_filed}
+      />
+      
+      <Button
+        title="ADD Item"
+        color='green'
+      />
+
     </View>
   );
 }
 
-const styles = StyleSheet.create({
+const whole_layout = StyleSheet.create({
   container: {
-    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems:'center',
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    paddingTop:40,
+    paddingLeft:10,
+    paddingRight:10
+  },input_filed: {
+    backgroundColor: '#dee',
+    borderColor: 'black',
+    width:'70%',
+    borderWidth:2,
+    textAlign:"center",
+    margin:5,
+    paddingTop:10,
+    paddingBottom:10,
+    fontSize:16
   },
 });
